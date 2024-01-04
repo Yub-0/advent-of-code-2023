@@ -1,8 +1,8 @@
 import numpy
 
-MULTIPLIER = 1_000_000
+MULTIPLIER = 1_000_000  # for part 2
 # MULTIPLIER = 10
-# MULTIPLIER = 2
+# MULTIPLIER = 2 # for part 1
 
 with open('inputs/input11.txt') as f:
     inputs = f.read()
@@ -79,6 +79,8 @@ for index, r in enumerate(input_matrix):
         continue
     galaxy_a = []
     for b_index, body in enumerate(r):
+        if '#' not in r[b_index:len(r)]:
+            continue
         if body == '#':
             galaxy_a.append(b_index)
             find_distance(index, b_index, input_matrix[index + 1:len(input_matrix)])
